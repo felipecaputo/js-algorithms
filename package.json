@@ -1,0 +1,24 @@
+{
+  "name": "js-algorithms",
+  "version": "1.0.0",
+  "description": "A little collection of basic data structures and algorithms implementated in javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipecaputo/js-algorithms.git"
+  },
+  "keywords": [
+    "javascript",
+    "algorithms",
+    "data-strutuctures"
+  ],
+  "author": "felipecaputo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/felipecaputo/js-algorithms/issues"
+  },
+  "homepage": "https://github.com/felipecaputo/js-algorithms#readme"
+}
