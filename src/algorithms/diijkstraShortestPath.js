@@ -38,8 +38,8 @@ function shortestPath (graph, start, end) {
     })
     dist.set(start, 0);
 
-    sortRemaining();
     while(remaining.length) {
+        sortRemaining();        
         let cur = remaining.shift();
         let curDist = dist.get(cur.name);
 
@@ -54,9 +54,10 @@ function shortestPath (graph, start, end) {
         })
     }
 
+    const finalDist = dist.get(end); 
     return Object.assign({}, {
-        distance: dist.get(end),
-        path: buildPath()
+        distance: finalDist,
+        path: finalDist === Number.POSITIVE_INFINITY ? [] : buildPath()
     });
 }
 

@@ -33,7 +33,19 @@ describe('Diijkstra Shortest Path', () => {
         let result = diijskstra(graph, '1', '3');
         expect(result.distance).to.be.equals(10);
         expect(result.path).to.be.deep.equal(['1','2','3'])
+
+        result = diijskstra(graph, '4', '3');
+        expect(result.distance).to.be.equals(30);
+        expect(result.path).to.be.deep.equal(['4', '1','2','3'])        
     });
+
+    it('should return inifite on unreacheable route', () => {
+        graph.addVertex('6');
+
+        let result = diijskstra(graph, '4', '6');
+        expect(result.distance).to.be.equals(Number.POSITIVE_INFINITY);
+        expect(result.path).to.be.deep.equal([])
+    });    
 
     it('should find shortest in little complex Graph', () => {
         graph.addVertex('6');
@@ -43,5 +55,29 @@ describe('Diijkstra Shortest Path', () => {
         let result = diijskstra(graph, '1', '6');
         expect(result.distance).to.be.equals(22);
         expect(result.path).to.be.deep.equal(['1','4', '6'])
-    });    
+    });
+
+    it('should find shortest in a more complex Graph', () => {
+        graph.addVertex('6');
+        graph.addVertex('7');
+        graph.addVertex('8');
+        graph.addVertex('9');
+        graph.addVertex('10');
+        graph.addVertex('11');
+
+        graph.addEdge('3','6', 2);
+        graph.addEdge('4','6', 2);
+        graph.addEdge('4','8', 2);
+        graph.addEdge('6','9', 2);
+        graph.addEdge('6','7', 2);
+        graph.addEdge('8','9', 2);
+        graph.addEdge('9','11', 2);
+        graph.addEdge('5','7', 2);
+        graph.addEdge('7','10', 2);
+        graph.addEdge('10','11', 2);
+
+        let result = diijskstra(graph, '1', '11');
+        expect(result.distance).to.be.equals(16);
+        expect(result.path).to.be.deep.equal(['1','2','3','6','9','11']);
+    });        
 });
