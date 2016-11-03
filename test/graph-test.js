@@ -1,4 +1,4 @@
-const Graph = require('../src/graph');
+const Graph = require('../').Graph;
 const expect = require('chai').expect;
 
 describe('Graph', () => {

@@ -1,3 +1,3 @@
-exports.Graph = require('./src/graph');
-exports.Vertex = require('./src/vertex');
-exports.VertexEdge = require('./src/vertex-edge');
+exports.Graph = require('./src/data-structures/graph');
+exports.Vertex = require('./src/data-structures/vertex');
+exports.VertexEdge = require('./src/data-structures/vertex-edge');

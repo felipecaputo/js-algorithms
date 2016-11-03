@@ -1,5 +1,5 @@
-const VertexEdge = require('../src/vertex-edge');
-const Vertex = require('../src/vertex');
+const VertexEdge = require('../').VertexEdge;
+const Vertex = require('../').Vertex;
 const expect = require('chai').expect;
 
 
