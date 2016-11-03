@@ -1,4 +1,5 @@
 const Graph = require('../').Graph;
+const Vertex = require('../').Vertex;
 const expect = require('chai').expect;
 
 describe('Graph', () => {
@@ -7,31 +8,40 @@ describe('Graph', () => {
         graph = new Graph();
     })
     describe('Vertices', () => {
-        it('Should add vertices', () => {
-            graph.addVertex('1');
-            expect(graph.vertices.size).to.be.eql(1);
-            graph.addVertex('2');
-            expect(graph.vertices.size).to.be.eql(2);
+        describe('addVertex', () => {
+            it('Should add vertices', () => {
+                graph.addVertex('1');
+                expect(graph.vertices.size).to.be.eql(1);
+                graph.addVertex('2');
+                expect(graph.vertices.size).to.be.eql(2);
+            }); 
+
+            it('should return the added vertex', () => {
+                expect(graph.addVertex('1')).to.be.instanceOf(Vertex);
+            });           
+
+            it('Should not add repeated vertices', () => {
+                const vertex = graph.addVertex('1');
+                expect(graph.vertices.size).to.be.eql(1);
+                graph.addVertex('1');
+                expect(graph.getVertex('1')).to.be.equal(vertex);
+                expect(graph.vertices.size).to.be.eql(1);
+                graph.addVertex(vertex);
+                expect(graph.vertices.size).to.be.eql(1);
+            });
         });
 
-        it('Should not add repeated vertices', () => {
-            const vertex = graph.addVertex('1');
-            expect(graph.vertices.size).to.be.eql(1);
-            graph.addVertex('1');
-            expect(graph.vertices.size).to.be.eql(1);
-            graph.addVertex(vertex);
-            expect(graph.vertices.size).to.be.eql(1);
-        });
+        describe('findVertex', () => {
+            it('should return true if called with existing vertex', () => {
+                graph.addVertex('1');
+                expect(graph.findVertex('1')).to.be.true;
+            });
 
-        it('Should return true if called findVertex with existing vertex', () => {
-            graph.addVertex('1');
-            expect(graph.findVertex('1')).to.be.true;
-        });
-
-        it('Should return false if findVertex is called with an unexistent vertex', () => {
-            expect(graph.findVertex('1')).to.be.false;
-            graph.addVertex('1');
-            expect(graph.findVertex('2')).to.be.false;
+            it('should return false if called with an unexistent vertex', () => {
+                expect(graph.findVertex('1')).to.be.false;
+                graph.addVertex('1');
+                expect(graph.findVertex('2')).to.be.false;
+            });            
         });
     })
 

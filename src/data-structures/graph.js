@@ -1,6 +1,12 @@
 var Vertex = require('./vertex');
 var VertexEdge = require('./vertex-edge');
 
+/**
+ * @desc Represents a Graph data stucture with vertices and edges
+ * 
+ * @typedef {Object} Graph
+ * @class Graph
+ */
 class Graph {
     constructor() {
         this.vertices = new Map();

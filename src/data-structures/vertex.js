@@ -1,6 +1,8 @@
 /**
  * This class represents a Graph with vertices and edges connecting them
- * 
+ *
+ * @typedef {Object} Vertex
+ *  
  * @class Vertex
  */
 class Vertex {
