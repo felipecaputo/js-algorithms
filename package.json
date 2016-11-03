@@ -4,7 +4,8 @@
   "description": "A little collection of basic data structures and algorithms implementated in javascript",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test"
+    "test": "./node_modules/.bin/mocha",
+    "tdd": "./node_modules/.bin/mocha -w -G"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/felipecaputo/js-algorithms/issues"
   },
-  "homepage": "https://github.com/felipecaputo/js-algorithms#readme"
+  "homepage": "https://github.com/felipecaputo/js-algorithms#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "sinon": "^1.17.6"
+  }
 }
