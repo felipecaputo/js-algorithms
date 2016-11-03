@@ -21,6 +21,8 @@ function shortestPath (graph, start, end) {
 
     function buildPath() {
         let result = new Array();
+        if(dist.get(end) === Number.POSITIVE_INFINITY) return result;
+
         result.push(end);
         let cur = prev.get(end);
 
@@ -54,10 +56,9 @@ function shortestPath (graph, start, end) {
         })
     }
 
-    const finalDist = dist.get(end); 
     return Object.assign({}, {
-        distance: finalDist,
-        path: finalDist === Number.POSITIVE_INFINITY ? [] : buildPath()
+        distance: dist.get(end),
+        path: buildPath()
     });
 }
 
