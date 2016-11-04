@@ -71,8 +71,11 @@ class Graph {
 
         const srcVertex = this.getVertex(source);
         const destVertex = this.getVertex(dest);
-        if (typeof srcVertex == 'undefined' || typeof destVertex == 'undefined')
-            throw `${source||dest} is not part of this graph`;
+        if (typeof srcVertex == 'undefined')
+            throw new Error(`${source} is not part of this graph`);
+        if (typeof destVertex == 'undefined')
+            throw new Error(`${dest} is not part of this graph`);
+
         this.edges.set(`${source}-${dest}`, new VertexEdge(srcVertex, destVertex, distance));
     }
 

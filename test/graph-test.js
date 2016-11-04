@@ -87,6 +87,11 @@ describe('Graph', () => {
                 graph.addEdge('2', '1', 1);
                 expect(graph.edges.size).to.be.eql(1);
             });
+
+            it('should raise exception for invalid vertices', () => {
+                expect(() => graph.addEdge('10', '11', 1)).to.throw('10 is not part of this graph');
+                expect(() => graph.addEdge('1', '11', 1)).to.throw('11 is not part of this graph');
+            })
         });
 
         describe('findEdge', () => {
